@@ -1,82 +1,53 @@
-# SICRY
-# 🛠️ SICRY System
+# SICRY — Industrial Maintenance Management System
 
-SICRY is a complete industrial maintenance management system designed to digitize and centralize operational workflows for industrial maintenance companies.
+**SICRY** (*Sistema de control de asignaciones y reportes*) digitizes the maintenance operations of the **Distrito de Riego del Río Yaqui** irrigation district. Supervisors assign work on wells and motors, field technicians report what they did with photo evidence, and everything is tracked in one cloud platform.
 
-It combines a backend API and a cross-platform desktop application into a unified solution.
+![.NET](https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet)
+![MAUI](https://img.shields.io/badge/.NET_MAUI-desktop_%26_mobile-512BD4)
+![Azure](https://img.shields.io/badge/Azure-App_Service_%7C_SQL_%7C_Blob-0078D4?logo=microsoftazure)
+![Status](https://img.shields.io/badge/status-in_production-success)
 
----
+![SICRY dashboard](docs/screenshots/dashboard.png)
 
-## 🧩 System Overview
+## What it does
 
-SICRY manages the full lifecycle of industrial maintenance operations, including:
+- **Equipment tracking**: wells (*pozos*), motors and spare parts.
+- **Work assignments**: supervisors create assignments for a well and pick the available technicians.
+- **Technical reports** per trade: electrical, maintenance and motor rewinding.
+- **Fault reporting** with fault categories and spare parts used.
+- **Evidence**: photos and documents uploaded to the cloud.
+- **Dashboard**: assignments by status, completion rate, top technicians and activity per employee.
+- **Roles**: Supervisor, Electrician, Maintenance and Winder, each with its own permissions.
 
-* Equipment tracking (wells, motors, assets)
-* Work assignments
-* Technical report generation
-* Field data collection with multimedia evidence
-* Role-based access control for different types of users
+## Architecture
 
----
+```mermaid
+flowchart LR
+    D["SICRY Desktop<br/>.NET MAUI · supervisors"] -->|HTTPS + JWT| A
+    M["SICRY Mobile<br/>.NET MAUI · technicians"] -->|HTTPS + JWT| A
+    A["SICRY API<br/>ASP.NET Core · Azure App Service"] --> DB[("Azure SQL<br/>Database")]
+    A --> B[("Azure Blob Storage<br/>evidence")]
+    G["GitHub Actions"] -->|CI/CD| A
+```
 
-## 🏗️ Architecture
+| Component | Technology | Repository |
+|---|---|---|
+| Backend API | ASP.NET Core Web API, EF Core, Mapster, JWT | [SICRY-Api](https://github.com/JuanMoroDev/SICRY-Api) (private) |
+| Desktop client | .NET MAUI (Windows) for supervisors | [SICRYDESKTOP](https://github.com/JuanMoroDev/SICRYDESKTOP) (private) |
+| Mobile client | .NET MAUI (Android / iOS) for field technicians | [SICRYMOBILE](https://github.com/JuanMoroDev/SICRYMOBILE) (private) |
+| Database | Azure SQL Database | — |
+| File storage | Azure Blob Storage | — |
+| Hosting & CI/CD | Azure App Service + GitHub Actions | — |
 
-The system is built using a modern distributed architecture:
+The source code is kept in private repositories; this repository is the public overview of the system.
 
-* **Backend API:** ASP.NET Core Web API
-* **Client Application:** .NET MAUI Desktop App
-* **Database:** Azure SQL Database
-* **Cloud Hosting:** Azure App Service
-* **CI/CD:** GitHub Actions
+## Screenshots
 
----
+| Login | New assignment |
+|---|---|
+| ![Login](docs/screenshots/login.png) | ![New assignment](docs/screenshots/nueva-asignacion.png) |
 
-## 📦 Repositories
+## Author
 
-This system is composed of multiple repositories:
-
-* 🔗 [Backend API → SICRY API](https://github.com/Beelzemon97/SICRY-Api)
-* 🔗 [Desktop Application → SICRY MAUI Client](https://github.com/Beelzemon97/SICRYDESKTOP/tree/master)
-
----
-
-## ⚙️ Key Capabilities
-
-* Secure authentication using JWT
-* Role-based access control (Supervisor, Technician roles)
-* Real-time assignment management
-* Technical report creation and tracking
-* Multimedia upload (images, videos, documents)
-* Cloud-based data synchronization
-* Scalable REST API architecture
-
----
-
-## ☁️ Cloud Infrastructure
-
-* Azure App Service for backend deployment
-* Azure SQL Database for data storage
-* Automated CI/CD pipelines using GitHub Actions
-
----
-
-## 🧠 Purpose
-
-SICRY was built to replace manual maintenance workflows with a centralized digital platform, improving efficiency, traceability, and operational control in industrial environments.
-
----
-
-## 🚀 Status
-
-✔ Production system
-✔ Real-world usage
-✔ Actively maintained
-
----
-
-## 👨‍💻 Author
-
-Juan Moroyoqui
-.NET Developer — Specialized in backend systems and cloud applications
-
----
+**Juan Moroyoqui**: .NET developer focused on backend systems and cloud applications.
+[GitHub](https://github.com/JuanMoroDev) · [LinkedIn](https://www.linkedin.com/in/juan-alfonso-moroyoqui-delgadillo-12b32b334/)

@@ -32,9 +32,9 @@ flowchart LR
 
 | Component | Technology | Repository |
 |---|---|---|
-| Backend API | ASP.NET Core Web API, EF Core, Mapster, JWT | [SICRY-Api](https://github.com/Beelzemon97/SICRY-Api) (private) |
-| Desktop client | .NET MAUI (Windows) for supervisors | [SICRYDESKTOP](https://github.com/Beelzemon97/SICRYDESKTOP) (private) |
-| Mobile client | .NET MAUI (Android / iOS) for field technicians | [SICRYMOBILE](https://github.com/Beelzemon97/SICRYMOBILE) (private) |
+| Backend API | ASP.NET Core Web API, EF Core, Mapster, JWT | [SICRY-Api](https://github.com/JuanMoroDev/SICRY-Api) (private) |
+| Desktop client | .NET MAUI (Windows) for supervisors | [SICRYDESKTOP](https://github.com/JuanMoroDev/SICRYDESKTOP) (private) |
+| Mobile client | .NET MAUI (Android / iOS) for field technicians | [SICRYMOBILE](https://github.com/JuanMoroDev/SICRYMOBILE) (private) |
 | Database | Azure SQL Database | — |
 | File storage | Azure Blob Storage | — |
 | Hosting & CI/CD | Azure App Service + GitHub Actions | — |
@@ -50,4 +50,4 @@ The source code is kept in private repositories; this repository is the public o
 ## Author
 
 **Juan Moroyoqui**: .NET developer focused on backend systems and cloud applications.
-[GitHub](https://github.com/Beelzemon97) · [LinkedIn](https://www.linkedin.com/in/juan-alfonso-moroyoqui-delgadillo-12b32b334/)
+[GitHub](https://github.com/JuanMoroDev) · [LinkedIn](https://www.linkedin.com/in/juan-alfonso-moroyoqui-delgadillo-12b32b334/)
